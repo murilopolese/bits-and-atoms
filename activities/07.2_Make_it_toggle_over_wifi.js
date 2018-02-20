@@ -33,7 +33,7 @@ const render = () => {
 
 http.createServer((req, res) => {
   const requestUrl = url.parse(req.url, true);
-  if (requestUrl.path === '/toggle') {
+  if (requestUrl.pathname === '/toggle') {
     isLedOn = !isLedOn;
     console.log('toggle', isLedOn);
     digitalWrite(led, isLedOn);

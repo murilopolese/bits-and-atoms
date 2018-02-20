@@ -20,7 +20,7 @@ const render = (data) => {
 
 http.createServer((req, res) => {
   const requestUrl = url.parse(req.url, true);
-  if (requestUrl.path === '/') {
+  if (requestUrl.pathname === '/') {
     counter++;
   }
 
