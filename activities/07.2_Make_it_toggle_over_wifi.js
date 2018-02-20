@@ -1,30 +1,32 @@
 const http = require("http");
 
-const led = 13;
+const led = 15;
 let isLedOn = false;
 digitalWrite(led, isLedOn);
 
 const render = () => {
   return `
 <html>
-<script>
-window.onload = () => {
-  const toggleLed = () => {
-    fetch('/toggle')
-    .then(r => r.text())
-    .then((r) => {
-    if(r === 'true') {
-    document.body.style.background = 'yellow';
-    } else {
-    document.body.style.background = '';
-    }
-    });
-  };
-  document.body.addEventListener('click', toggleLed);
-  document.body.addEventListener('touchstart', toggleLed);
-};
-</script>
-<body></body>
+    <head>
+        <script>
+            window.onload = () => {
+              const toggleLed = () => {
+                fetch('/toggle')
+                .then(r => r.text())
+                .then((r) => {
+                if(r === 'true') {
+                document.body.style.background = 'yellow';
+                } else {
+                document.body.style.background = '';
+                }
+                });
+              };
+              document.body.addEventListener('click', toggleLed);
+              document.body.addEventListener('touchstart', toggleLed);
+            };
+        </script>
+    </head>
+    <body></body>
 </html>
 `;
 };
